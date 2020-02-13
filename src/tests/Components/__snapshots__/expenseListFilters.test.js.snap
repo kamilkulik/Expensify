@@ -2,9 +2,6 @@
 
 exports[`should render expenseListFilters correctly 1`] = `
 <div>
-  <h3>
-    Filter by text:
-  </h3>
   <input
     onChange={[Function]}
     type="text"
@@ -113,9 +110,6 @@ exports[`should render expenseListFilters correctly 1`] = `
 
 exports[`should render expenseListFilters with alt data correctly 1`] = `
 <div>
-  <h3>
-    Filter by text:
-  </h3>
   <input
     onChange={[Function]}
     type="text"

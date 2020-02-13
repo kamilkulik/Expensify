@@ -8,17 +8,21 @@ export class ExpenseSummary extends React.Component {
   render() {
     return (
       <div>
-        {`Showing ${this.props.expenses.length} 
-        expense${this.props.expenses.length === 1 ? '' : 's'} 
-        totalling ${numeral(expensesTotal(this.props.expenses) / 100).format('$0,0.00')}`}
+        <h1>
+          {`Viewing ${this.props.expenseCount} 
+          expense${this.props.expenseCount === 1 ? '' : 's'} 
+          totalling ${numeral(this.props.expensesTotal / 100).format('$0,0.00')}`}
+        </h1>
       </div>
     )
   }
 }
 
 const mapStateToProps = (state) => {
+  const visibleExpenses = selectExpenses(state.expenses, state.filters);
   return {
-    expenses: selectExpenses(state.expenses, state.filters)
+    expensesTotal: expensesTotal(visibleExpenses),
+    expenseCount: visibleExpenses.length
   }
 }
 
